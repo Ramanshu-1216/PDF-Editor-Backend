@@ -11,7 +11,11 @@ const createUser = (req, res) => {
             res.status(200).json({ data: { token: user.generateAuthToken() }, msg: 'User Created' });
         })
         .catch(error => {
-            res.status(400).json({ error: error, msg: "Error" });
+            if(error.code === 11000 && error.keyPattern.email === 1){
+                res.status(201).json({error: error, msg: "User already exist!"});
+                return;
+            }
+            res.status(400).json({ error: error, msg: "Something went wrong!" });
         })
 }
 

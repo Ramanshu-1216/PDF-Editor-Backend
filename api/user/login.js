@@ -10,12 +10,12 @@ const login = async (req, res) => {
     try {
         const user = await UserModel.findOne({ email: email });
         if (!user) {
-            res.status(400).json({ error: 'User not found', msg: 'Error' }); return;
+            res.status(400).json({ error: 'User not found', msg: 'User not found' }); return;
         }
         if (await bcrypt.compare(password, user.password)) {
             res.status(200).json({ data: { token: user.generateAuthToken() }, msg: 'User logged in' }); return;
         }
-        res.status(400).json({ error: 'Invalid credentials', msg: 'Error' }); return;
+        res.status(400).json({ error: 'Invalid credentials', msg: 'Invalid credentials' }); return;
     }
     catch (error) { res.status(500).json({ error: error, msg: 'Error' }); }
 }

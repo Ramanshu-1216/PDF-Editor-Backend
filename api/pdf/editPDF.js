@@ -12,7 +12,7 @@ const editPDF = async (req, res) => {
         uploadedFile = String(fs.readFileSync('/home/ramanshu/Downloads/somatosensory.pdf', 'utf-8'));
         res.status(400).json({
             error: 'Provide buffer of pdf in base64',
-            msg: 'Error',
+            msg: 'Provide buffer of pdf in base64',
         });
         return;
     }
@@ -28,7 +28,7 @@ const editPDF = async (req, res) => {
             if (index >= originalPDF.getPageCount()) {
                 res.status(400).json({
                     error: 'Index provided is greater than pages in original file: ' + index,
-                    msg: 'Error',
+                    msg: 'Index provided is greater than pages in original file: ' + index,
                 });
                 return;
             }
