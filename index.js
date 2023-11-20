@@ -9,7 +9,7 @@ const cors = require('cors');
 const login = require('./api/user/login');
 const multer = require('multer');
 const port = 8000;
-mongoose.connect('mongodb+srv://gawanderamanshu:vHjSRF4oJIZueOe3@cluster0.ejgsotr.mongodb.net/?retryWrites=true&w=majority/PDFEditor')
+mongoose.connect('mongodb+srv://gawanderamanshu:vHjSRF4oJIZueOe3@cluster0.ejgsotr.mongodb.net/?retryWrites=true&w=majority')
     .then(() => { console.log("Connected to Database") })
     .catch((error) => { console.log("Error in connection with database: " + error) });
 
